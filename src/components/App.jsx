@@ -45,7 +45,10 @@ class App extends React.Component {
         <h1 className={css.title}>Phonebook</h1>
         <ContactForm onAddContact={this.handleSubmit}/>
         <h2 className={css.title}>Contacts</h2>
-        <Filter onFilter={this.handleFilter} />
+        <Filter
+          filter={this.state.filter}
+          onFilter={this.handleFilter}
+        />
         {this.state.contacts.length > 0
           ? (
             <ContactList
