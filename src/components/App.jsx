@@ -16,13 +16,14 @@ class App extends React.Component {
     filter: '',
   }
   
-  handleSubmit = ({ name, number}) => {
-    if (this.state.contacts.some(contact => contact.name.toLowerCase() === name.toLowerCase()))
+  handleSubmit = ({ name, number }) => {
+    const { contacts } = this.state;
+    if (contacts.some(contact => contact.name.toLowerCase() === name.toLowerCase()))
     {
       alert(`${name} is already in contacts.`);
       return;
     }
-    this.setState({ contacts: [...this.state.contacts, { id: nanoid(), name: name, number: number }] });
+    this.setState({ contacts: [...contacts, { id: nanoid(), name: name, number: number }] });
   }
 
   handleFilter = evt => {
